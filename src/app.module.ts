@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { AppController } from './controllers/app.controller';
 import { AppService } from './services/app.service';
 import { DbModule } from './db/db.module';
@@ -10,6 +10,6 @@ import { configSchema } from './config/config.schema';
 @Module({
   imports: [ConfigModule.forRoot({ validationSchema: configSchema }), DbModule],
   controllers: [AppController, UserController],
-  providers: [AppService, UserService],
+  providers: [AppService, UserService, Logger],
 })
 export class AppModule {}
